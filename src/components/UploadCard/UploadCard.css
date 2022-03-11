@@ -1,0 +1,30 @@
+.uploadCard {
+    width: 25.125rem;
+    height:29.3125rem;
+    border-radius: .25rem;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    box-shadow: 0px 4px 12px 0px #0000001A;
+}
+.uploadCard__title {
+    font-weight: 300;
+    letter-spacing: -1px;
+}
+.uploadCard__text {
+    color: #BDBDBD;
+}
+
+
+.image-upload {
+    background-color: #F6F8FB;
+    padding: 3rem;
+    background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' stroke='%23333' stroke-width='1' stroke-dasharray='13' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
+    border-radius: .25rem;
+    width: 80%;
+    width: 21.125rem;
+    height: 14rem;
+}
+
