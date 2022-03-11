@@ -9,7 +9,7 @@ export default function SuccessCard() {
   return (
     <div className='uploadCard'>
         <h1 className='uploadCard__title'>
-            Uploaded Succesfully
+            Uploaded Succesfully!
         </h1>
         <img src={checkIcon} alt="" className='checkIcon'/>
         <div>
@@ -17,7 +17,8 @@ export default function SuccessCard() {
         </div>
         <div className='url__box'>
             <p className='url__text'>wwww.madeupURL.org</p>
-            <FileUploader />
+            {/* <FileUploader buttonText={'Copy Link'}/> */}
+            <button className='button'>Copy Link</button>
         </div>
     </div>
   )

@@ -19,7 +19,7 @@ export default function UploadCard() {
             </p>
         </div>
         <p className='uploadCard__text'>Or</p>
-        <FileUploader/>
+        <FileUploader />
     </div>
   )
 }

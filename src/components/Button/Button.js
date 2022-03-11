@@ -28,7 +28,7 @@ export default function FileUploader(props) {
   return (
     <>
       <Button onClick={handleClick} >
-        Upload a file
+        Choose a file
       </Button>
       <input
         type="file"

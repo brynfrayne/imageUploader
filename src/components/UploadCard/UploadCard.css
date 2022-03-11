@@ -8,6 +8,7 @@
     align-items: center;
     padding: 1rem;
     box-shadow: 0px 4px 12px 0px #0000001A;
+    margin: .25rem;
 }
 .uploadCard__title {
     font-weight: 300;
