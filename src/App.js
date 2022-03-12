@@ -10,6 +10,7 @@ function App() {
       <UploadCard />
       <LoadingCard />
       <SuccessCard />
+      <p className='footer'>created by <b>Bryn Frayne</b> - devChallenges.io</p>
     </div>
   );
 }

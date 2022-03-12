@@ -16,14 +16,31 @@ export default function FileUploader(props) {
   
   // Programatically click the hidden file input element
   // when the Button component is clicked
-  const handleClick = event => {
-    hiddenFileInput.current.click();
-  };
+  const handleClick = event => {const formData = new FormData();
+
+		formData.append('File', selectedFile);
+
+		axios.post(
+			'https://freeimage.host/api/1/upload?key=<YOUR_API_KEY>',
+			{
+				method: 'POST',
+				body: formData,
+			}
+		)
+			.then((response) => response.json())
+			.then((result) => {
+				console.log('Success:', result);
+			})
+			.catch((error) => {
+				console.error('Error:', error);
+			});
+	};
+	
   // Call a function (passed as a prop from the parent component)
   // to handle the user-selected file 
   const handleChange = event => {
-    const fileUploaded = event.target.files[0];
-    props.handleFile(fileUploaded);
+    setSelectedFile(event.target.files[0]);
+		setIsSelected(true);
   };
   return (
     <>
@@ -32,6 +49,7 @@ export default function FileUploader(props) {
       </Button>
       <input
         type="file"
+        name="file"
         ref={hiddenFileInput}
         onChange={handleChange}
         style={{display: 'none'}} 

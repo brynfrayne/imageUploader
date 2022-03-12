@@ -4,6 +4,9 @@ import FileUploader from '../Button/Button';
 import './UploadCard.css';
 
 export default function UploadCard() {
+    const [selectedFile, setSelectedFile] = useState();
+	const [isFilePicked, setIsFilePicked] = useState(false);
+
   return (
     <div className='uploadCard'>
         <h1 className='uploadCard__title'>
