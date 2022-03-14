@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import Icon from '../../assets/image-uploader-master/image.svg';
 import FileUploader from '../Button/Button';
 import axios from 'axios';
-import './UploadCard.css';
+const uniqid = require("uniqid");
+
 
 export default function UploadCard() {
     const [selectedFile, setSelectedFile] = useState();
@@ -17,25 +18,34 @@ export default function UploadCard() {
     
     hiddenFileInput.current.click();
 
-    const formData = new FormData();
-
-    formData.append('Image', selectedFile);
-
-    axios.post("http://localhost:8080/images", formData, {})
-        
-        .then((result) => {
-            console.log('Success:', result);
-        })
-        .catch((error) => {
-            console.error('Error:', error);
-        });
+   
 	};
 
       // Call a function (passed as a prop from the parent component)
   // to handle the user-selected file 
     const handleChange = event => {
-    setSelectedFile(event.target.files[0]);
+        console.log(selectedFile)
+        setSelectedFile(event.target.files[0]);
 		setIsSelected(true);
+        console.log(selectedFile.name); 
+        
+        const formData = new FormData();
+
+    formData.append('Image', selectedFile);
+    console.log(formData);
+    console.log(event.target.files[0])
+    axios.post("http://localhost:8080/images", {
+        file: selectedFile,
+        name: 'bryn'
+    })
+        
+        .then((result) => {
+            console.log('Success:', result);
+            alert('it worked?')
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+        });
   };
 
     
