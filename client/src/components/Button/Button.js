@@ -20,7 +20,7 @@ export default function FileUploader({handleChange, handleClick, hiddenFileInput
       </Button>
       <input
         type="file"
-        name="image"
+        name="photo"
         ref={hiddenFileInput}
         onChange={handleChange}
         style={{display: 'none'}} 

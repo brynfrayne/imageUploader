@@ -35,6 +35,9 @@ export default function UploadCard() {
 
     formData.append('Image', selectedFile);
     console.log(formData);
+    for (let value of formData.values()) {
+        console.log(value);
+     }
     
 
     // for whatever reason my file is only being sent as an empty object??????
