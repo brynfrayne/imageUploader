@@ -2,7 +2,9 @@ import React, { useState } from 'react';
 import Icon from '../../assets/image-uploader-master/image.svg';
 import FileUploader from '../Button/Button';
 import axios from 'axios';
+import FormData from 'form-data';
 const uniqid = require("uniqid");
+
 
 
 export default function UploadCard() {
@@ -24,19 +26,22 @@ export default function UploadCard() {
       // Call a function (passed as a prop from the parent component)
   // to handle the user-selected file 
     const handleChange = event => {
-        console.log(selectedFile)
+        
         setSelectedFile(event.target.files[0]);
 		setIsSelected(true);
-        console.log(selectedFile.name); 
+        
         
         const formData = new FormData();
 
     formData.append('Image', selectedFile);
     console.log(formData);
-    console.log(event.target.files[0])
+    
+
+    // for whatever reason my file is only being sent as an empty object??????
+
     axios.post("http://localhost:8080/images", {
-        file: selectedFile,
-        name: 'bryn'
+        headers: { "Content-Type": "multipart/form-data" },
+        body: formData
     })
         
         .then((result) => {
