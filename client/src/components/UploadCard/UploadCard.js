@@ -33,20 +33,21 @@ export default function UploadCard() {
         
         const formData = new FormData();
 
-    formData.append('Image', selectedFile);
-    console.log(formData);
-    for (let value of formData.values()) {
-        console.log(value);
-     }
-    
-
-    // for whatever reason my file is only being sent as an empty object??????
-
-    axios.post("http://localhost:8080/images", {
-        headers: { "Content-Type": "multipart/form-data" },
-        body: formData
-    })
+        formData.append('photo', selectedFile);
         
+        for (let value of formData.values()) {
+            console.log(value);
+        }
+        const config = {
+            headers: {
+                "content-type": "multipart/form-data" 
+            }
+        };
+        const url = "http://localhost:8080/images"
+
+        // for whatever reason my file is only being sent as an empty object??????
+
+        axios.post(url, formData, config)
         .then((result) => {
             console.log('Success:', result);
             alert('it worked?')
@@ -73,7 +74,9 @@ export default function UploadCard() {
             </p>
         </div>
         <p className='uploadCard__text'>Or</p>
+        {/* <form > */}
         <FileUploader handleClick={handleClick} handleChange={handleChange} hiddenFileInput={hiddenFileInput}/>
+        {/* </form> */}
     </div>
   )
 }
