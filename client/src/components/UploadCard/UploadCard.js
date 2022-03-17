@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Icon from '../../assets/image-uploader-master/image.svg';
 import FileUploader from '../Button/Button';
 import axios from 'axios';
@@ -9,7 +10,7 @@ const uniqid = require("uniqid");
 
 export default function UploadCard() {
     const [selectedFile, setSelectedFile] = useState();
-	const [isSelected, setIsSelected] = useState(false);
+	
 
     // Create a reference to the hidden file input element
   const hiddenFileInput = React.useRef(null);
@@ -17,18 +18,15 @@ export default function UploadCard() {
     // Programatically click the hidden file input element
     // when the Button component is clicked
   const handleClick = event => {
-    
     hiddenFileInput.current.click();
-
-   
 	};
-
+    const navigate = useNavigate();
       // Call a function (passed as a prop from the parent component)
   // to handle the user-selected file 
     const handleChange = event => {
         
         setSelectedFile(event.target.files[0]);
-		setIsSelected(true);
+		// setIsSelected(true);
         
         
         const formData = new FormData();
@@ -50,7 +48,10 @@ export default function UploadCard() {
         axios.post(url, formData, config)
         .then((result) => {
             console.log('Success:', result);
-            alert('it worked?')
+            
+        })
+        .then((result) => {
+            navigate('/result');
         })
         .catch((error) => {
             console.error('Error:', error);

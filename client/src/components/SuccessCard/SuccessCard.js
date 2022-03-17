@@ -1,11 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Stock from '../../assets/image-uploader-master/stock.jpg';
 import checkIcon from '../../assets/image-uploader-master/greenCheckIcon.jpeg';
-import FileUploader from '../Button/Button';
 import '../UploadCard/UploadCard.css';
 import './SuccessCard.css';
+import LoadingCard from '../LoadingCard/LoadingCard';
 
 export default function SuccessCard() {
+  const [isSelected, setIsSelected] = useState(false);
+
+  if(!isSelected) {
+    return <LoadingCard/>;
+  }
   return (
     <div className='uploadCard'>
         <h1 className='uploadCard__title'>

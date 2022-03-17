@@ -12,7 +12,7 @@ const multerConfig = multer.diskStorage({
     },
     filename: (_req, file, callback) => {
         const ext = file.mimetype.split('/')[1];
-        callback(null,`image-${Date.now()}.${ext}`);
+        callback(null,`${file.originalname}.${ext}`);
     }
 })
 const isImage = (_req,file, callback) => {
