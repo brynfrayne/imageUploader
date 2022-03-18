@@ -1,16 +1,19 @@
-import React, { useState } from 'react'
+import React from 'react'
 import Stock from '../../assets/image-uploader-master/stock.jpg';
 import checkIcon from '../../assets/image-uploader-master/greenCheckIcon.jpeg';
 import '../UploadCard/UploadCard.css';
 import './SuccessCard.css';
 import LoadingCard from '../LoadingCard/LoadingCard';
+import axios from 'axios';
 
-export default function SuccessCard() {
-  const [isSelected, setIsSelected] = useState(false);
+export default function SuccessCard({isSelected, fileName}) {
+  console.log(fileName);
 
-  if(!isSelected) {
-    return <LoadingCard/>;
-  }
+  axios.get("http://localhost:8080/result")
+    .then((result) => {
+      console.log(result);
+    })
+
   return (
     <div className='uploadCard'>
         <h1 className='uploadCard__title'>

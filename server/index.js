@@ -4,6 +4,7 @@ const PORT = 8080;
 const cors = require('cors');
 const fs = require('fs');
 
+// multer config variables
 const multer = require('multer');
 
 const multerConfig = multer.diskStorage({
@@ -12,7 +13,9 @@ const multerConfig = multer.diskStorage({
     },
     filename: (_req, file, callback) => {
         const ext = file.mimetype.split('/')[1];
-        callback(null,`${file.originalname}.${ext}`);
+        callback(null,`${file.originalname}`);
+        // callback(null,`${Date.now()}.${ext}`);
+
     }
 })
 const isImage = (_req,file, callback) => {
@@ -29,14 +32,18 @@ const upload = multer({
 });
 const uploadImage = upload.single('photo');
 
+// middleware
 app.use(express.json());
 app.use(express.urlencoded());
-
 app.use(cors());
 
-
+// endpoints
 app.post("/images", uploadImage, (req, res) => {
     res.send("Image uploaded")
+})
+
+app.get("/result", (req, res) => {
+    res.send('Here i am!')
 })
 
 app.listen(PORT, () => {
