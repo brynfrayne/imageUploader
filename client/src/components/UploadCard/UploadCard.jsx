@@ -1,5 +1,4 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
 import Icon from '../../assets/image-uploader-master/image.svg';
 import axios from 'axios';
 import LoadingCard from '../LoadingCard/LoadingCard';
@@ -89,8 +88,10 @@ export default function UploadCard() {
                 name="photo"
                 ref={hiddenFileInput}
                 multiple={false}
+                accept="image/jpeg, image/jpg, image/png"
                 onChange={handleChange}
                 style={{display: 'none'}} 
+                className='simple-file-upload'
             />   
             </div>)
             
