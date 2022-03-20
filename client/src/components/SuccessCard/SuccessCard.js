@@ -1,10 +1,8 @@
-import React, { useState } from 'react'
-import Stock from '../../assets/image-uploader-master/stock.jpg';
+
 import checkIcon from '../../assets/image-uploader-master/greenCheckIcon.jpeg';
 import '../UploadCard/UploadCard.css';
 import './SuccessCard.css';
-import LoadingCard from '../LoadingCard/LoadingCard';
-import axios from 'axios';
+
 
 export default function SuccessCard({name}) {
 
@@ -19,7 +17,9 @@ export default function SuccessCard({name}) {
         </div>
         <div className='url__box'>
             <p className='url__text'>{"http://localhost:8080/result/"+name}</p>
-            <button className='button'>Copy Link</button>
+            <button className='button' onClick={() =>  navigator.clipboard.writeText("http://localhost:8080/result/"+name)}>
+              Copy Link
+            </button>
         </div>
     </div>
   )

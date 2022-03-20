@@ -4,6 +4,7 @@
     object-fit: contain;
     object-position: center;
     border-radius: .5rem;
+    margin: 1rem;
 }
 
 .checkIcon {
@@ -17,8 +18,11 @@
     border: 1px solid #E0E0E0;
     border-radius: .5rem;
     padding-left: .5rem;
+    max-height: 2.5rem;
 }
 .url__text {
     font-size: .75rem;
     padding: 0 .5rem;
+    max-width: 79%;
+    overflow: hidden;
 }

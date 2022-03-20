@@ -64,7 +64,17 @@ export default function UploadCard() {
             <p className='uploadCard__text'>
                 File should be Jpeg, Png...
             </p>
-            <div className='image-upload'>
+            <div 
+            className='image-upload'
+            onDragOver={(e) => {
+                e.preventDefault();
+              }}
+              onDrop={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                setSelectedFile(e.dataTransfer.files[0]);
+              }}
+            >
                 <img src={Icon} alt="" />
                 <p className='uploadCard__text'>
                     Drag & Drop your image here
