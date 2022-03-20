@@ -34,8 +34,9 @@ export default function UploadCard() {
         console.log(selectedFile.name)
 
         axios.post(url, formData, config)
-        .then((_result) => {
-            setImgName(selectedFile.name);
+        .then((result) => {
+            console.log(result)
+            setImgName(result.data);
             setUploaded(true);
         })
         .then(_result=>{

@@ -13,11 +13,11 @@ export default function SuccessCard({name}) {
         </h1>
         <img src={checkIcon} alt="" className='checkIcon'/>
         <div>
-            <img src={"http://localhost:8080/result/"+name} alt="" className='uploaded-image'/>
+            <img src={name} alt="" className='uploaded-image'/>
         </div>
         <div className='url__box'>
-            <p className='url__text'>{"http://localhost:8080/result/"+name}</p>
-            <button className='button' onClick={() =>  navigator.clipboard.writeText("http://localhost:8080/result/"+name)}>
+            <p className='url__text'>{name}</p>
+            <button className='button' onClick={() =>  navigator.clipboard.writeText(name)}>
               Copy Link
             </button>
         </div>
