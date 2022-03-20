@@ -20,12 +20,15 @@ export default function CardPage() {
     hiddenFileInput.current.click();
 	};
     const navigate = useNavigate();
-      
+    
+    
+    // ! so what is happening is that the initial time i 'upload' a file nothing happens - but then if i click again the
+    // selected file from the previosu time is loaded ???
     const handleChange = event => {
-        
+        console.log(event.target.files.length)
         setSelectedFile(event.target.files[0]);
         setIsClicked(true);
-		    
+        console.log(event.target.files[0])
         
         const formData = new FormData();
 
@@ -48,10 +51,11 @@ export default function CardPage() {
         .then((result) => {
             console.log('Success:', result);
             setIsSelected(true);
+            setIsClicked(false);
         })
-        .then((result) => {
-            navigate('/result');
-        })
+        // .then((result) => {
+        //     navigate('/result');
+        // })
         .catch((error) => {
             console.error('Error:', error);
         });

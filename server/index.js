@@ -35,6 +35,7 @@ const uploadImage = upload.single('photo');
 // middleware
 app.use(express.json());
 app.use(express.urlencoded());
+app.use(express.static('data'));
 app.use(cors());
 
 // endpoints
@@ -42,8 +43,14 @@ app.post("/images", uploadImage, (req, res) => {
     res.send("Image uploaded")
 })
 
-app.get("/result", (req, res) => {
-    res.send('Here i am!')
+app.get("/result/:fileName", (req, res) => {
+    const fileName = req.params.fileName;
+    // console.log(fileName);
+    // const data = fs.readdirSync('./data');
+    // const dataFilter = data.filter(img=>img===fileName);
+
+    // res.send(dataFilter[0]);
+    res.sendFile(`${fileName}`, {root:'./data'});
 })
 
 app.listen(PORT, () => {

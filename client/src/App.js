@@ -14,7 +14,7 @@ function App() {
     <BrowserRouter >
     <div className="App">
       <Routes>
-        <Route element={<CardPage/>} exact path='/'/>
+        <Route element={<UploadCard/>} exact path='/'/>
         <Route element={<LoadingCard/>} path='/loading'/>
         <Route element={<SuccessCard/>} path='/result'/>
       </Routes>
